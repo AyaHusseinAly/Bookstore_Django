@@ -1,0 +1,26 @@
+{% extends "layout.html"%}
+
+{% block body %}
+
+{% load bootstrap4 %}
+<div class="container">
+<h1>Available Books</h1>
+
+{% for book in books %}
+    <hr>
+    <a href="{% url "edit" book.id%}">Edit</a>
+    <a href="{% url "view" book.id%}">view</a>
+    <a href="{% url "delete" book.id%}">delete</a>
+
+
+
+    <h4>{{book.title}}</h4>
+    <p>{{book.content}}</p>
+    <hr>
+{% endfor %}
+
+<a class="btn btn-primary" href="/books/create">Create New Book</a>
+</div>
+
+{%endblock%}
+
