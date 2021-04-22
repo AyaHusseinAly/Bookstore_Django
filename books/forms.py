@@ -12,7 +12,7 @@ class BookForm(forms.ModelForm):
 
         def clean_title(self):
             title = self.cleaned_data.get("title")
-        #categories=self.cleaned_data.get(" categories")
+            #categories=self.cleaned_data.get(" categories")
             if len(title)>50 or len(title)<10 :
                 raise ValidationError("title length should be between 10 - 50")
 

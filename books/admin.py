@@ -16,7 +16,7 @@ class BookAdmin(admin.ModelAdmin):
     form=BookForm
     search_fields=("title",)
     list_filter=("categories",)
-    list_display=("title",)
+    list_display=("title","isbn")
     #readonly_fields =("isbn","author")
 
 class CategoryAdmin(admin.ModelAdmin):

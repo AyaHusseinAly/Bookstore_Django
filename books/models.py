@@ -27,6 +27,6 @@ class Book(models.Model):
     content = models.TextField(max_length=2048)
     author = models.ForeignKey(User, null=True,on_delete=models.CASCADE)
     categories = models.ManyToManyField(Category)
-    isbn = models.OneToOneField(Isbn,null=True,blank=True, on_delete=models.CASCADE)
+    isbn = models.OneToOneField(Isbn, null=True,blank=True, on_delete=models.CASCADE)
     tag= models.ForeignKey(Tag, null=True,blank=True, on_delete=models.CASCADE)
 
