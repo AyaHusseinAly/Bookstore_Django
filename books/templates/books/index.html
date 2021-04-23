@@ -2,9 +2,13 @@
 
 {% block body %}
 
-{% load bootstrap4 %}
 <div class="container">
 <h1>Available Books</h1>
+
+{% if request.user.is_authenticated %}
+<h3> Welcome {{request.user}}</h3>
+{% endif %}
+
 
 {% for book in books %}
     <hr>
