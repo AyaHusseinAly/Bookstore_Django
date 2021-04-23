@@ -7,8 +7,10 @@ class SimpleMiddleware:
         # One-time configuration and initialization.
 
     def __call__(self, request):
-        #return self.get_response(request)
-        if request.user.is_active:
-            return self.get_response(request)
 
-        return HttpResponseForbidden("you're not active user, contact system administrator for more info")
+       
+        if request.user.is_authenticated and not request.user.is_superuser:
+
+            return HttpResponseForbidden("you're not active user, contact system administrator for more info")
+        
+        return self.get_response(request)
