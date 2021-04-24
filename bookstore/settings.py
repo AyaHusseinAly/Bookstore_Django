@@ -34,6 +34,8 @@ ALLOWED_HOSTS = []
 INSTALLED_APPS = [
     "books.apps.BooksConfig",
     "accounts",
+    'rest_framework',
+    'rest_framework.authtoken',
     "bootstrap4",
     'django.contrib.admin',
     'django.contrib.auth',
@@ -42,7 +44,11 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 ]
-
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework.authentication.TokenAuthentication',
+    ],
+}
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -51,8 +57,9 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    "accounts.middleware.SimpleMiddleware"
+    #"accounts.middleware.SimpleMiddleware"
 ]
+
 
 ROOT_URLCONF = 'bookstore.urls'
 
